@@ -1,10 +1,38 @@
-HELP.md
+# =========================================================================
+# Arquivo: .gitignore
+# Projeto: adrianoserralheria (Spring Boot + Maven)
+# Objetivo: Impedir o envio de binarios compilados, configuracoes locais 
+# de IDEs e arquivos sensíveis contendo chaves de conexao (Databricks).
+# =========================================================================
+
+# -------------------------------------------------------------------------
+# 1. Arquivos de Segredos e Variaveis de Ambiente (CRITICO)
+# -------------------------------------------------------------------------
+# Bloqueia arquivos contendo tokens, senhas e URLs locais do Databricks
+.env
+.env.local
+.env.*.local
+*.env
+
+# -------------------------------------------------------------------------
+# 2. Artefatos de Compilacao do Maven
+# -------------------------------------------------------------------------
+# Ignora a pasta de saida dos arquivos compilados (.class e pacotes .jar)
 target/
-.mvn/wrapper/maven-wrapper.jar
+!.mvn/wrapper/maven-wrapper.jar
 !**/src/main/**/target/
 !**/src/test/**/target/
 
-### STS ###
+# Documentacao padrao do Spring Initializr
+HELP.md
+
+# -------------------------------------------------------------------------
+# 3. Configuracoes de IDEs e Editores de Codigo
+# -------------------------------------------------------------------------
+# Visual Studio Code
+.vscode/
+
+# Spring Tool Suite (STS) / Eclipse
 .apt_generated
 .classpath
 .factorypath
@@ -13,15 +41,13 @@ target/
 .springBeans
 .sts4-cache
 
-### IntelliJ IDEA ###
-.idea
+# IntelliJ IDEA
+.idea/
 *.iws
 *.iml
 *.ipr
-*.iws
-.env
 
-### NetBeans ###
+# NetBeans
 /nbproject/private/
 /nbbuild/
 /dist/
@@ -31,5 +57,11 @@ build/
 !**/src/main/**/build/
 !**/src/test/**/build/
 
-### VS Code ###
-.vscode/
+# -------------------------------------------------------------------------
+# 4. Logs e Arquivos Temporarios do Sistema
+# -------------------------------------------------------------------------
+*.log
+hs_err_pid*
+replay_pid*
+Thumbs.db
+.DS_Store
